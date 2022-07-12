@@ -6,6 +6,8 @@ import com.greenkrueger.demo.client.models.Client;
 import com.greenkrueger.demo.client.repos.ClientRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ClientServiceImpl implements ClientService{
     private ClientRepo clientRepo;
@@ -17,5 +19,13 @@ public class ClientServiceImpl implements ClientService{
     @Override
     public Client create(Client client) throws ClientCreationException {
         return clientRepo.save(client);
+    }
+
+    @Override
+    public Client getById(long id) throws ClientCreationException {
+        Optional<Client> optional = clientRepo.findById(id);
+        if (optional.isEmpty())
+            throw new ClientCreationException(String.format("Client with id {} not found", id));
+        return optional.get();
     }
 }
