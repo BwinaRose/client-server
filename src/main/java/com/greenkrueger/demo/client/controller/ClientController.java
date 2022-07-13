@@ -27,7 +27,7 @@ public class ClientController {
         return clientService.create(client);
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/client/{id}")
     public Client getById(@PathVariable("id") Long id) throws ClientNotFoundException{
         return clientService.getClientById(id);
     }
