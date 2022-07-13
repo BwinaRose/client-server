@@ -28,4 +28,9 @@ public class ClientServiceImpl implements ClientService{
             throw new ClientCreationException(String.format("Client with id {} not found", id));
         return optional.get();
     }
+
+    @Override
+    public Iterable<Client> getAllClients(){
+        return clientRepo.findAll();
+    }
 }
