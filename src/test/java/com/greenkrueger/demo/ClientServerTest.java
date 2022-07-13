@@ -26,12 +26,12 @@ public class ClientServerTest {
     @MockBean
     private ClientRepo clientRepo;
 
-    @Test
-    public void getClientTest01() throws ClientCreationException {
-        Client mockClient = new Client("Demari","Green","d@gmail.com");
-        mockClient.setId(1l);
-        BDDMockito.doReturn(Optional.of(mockClient)).when(clientRepo).findById(1l);
-        Client actualClient = clientService.getById(1l);
-        Assertions.assertEquals(mockClient, actualClient);
-    }
+//    @Test
+//    public void getClientTest01() throws ClientCreationException {
+//        Client mockClient = new Client("Demari","Green","d@gmail.com");
+//        mockClient.setId(1l);
+//        BDDMockito.doReturn(Optional.of(mockClient)).when(clientRepo).findById(1l);
+//        Client actualClient = clientService.getById(1l);
+//        Assertions.assertEquals(mockClient, actualClient);
+//    }
 }
